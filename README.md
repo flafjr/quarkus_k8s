@@ -1,5 +1,8 @@
 # Quarkus_K8s
 
+## Pre-Req
+- [Kompose](https://kompose.io/installation/)
+
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
