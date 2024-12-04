@@ -35,3 +35,6 @@ k8s-pfw: ## port forwarding to quarkus service
 
 logs: ## Logs to K8S quarkus service
 	@kubectl logs svc/quarkus-k8s
+
+postgres: ## Logs to K8S quarkus service
+	@helm upgrade --install postgres-local-postgresql bitnami/postgresql --namespace quarkus-postgres --set postgresqlPassword=mysecretpassword
