@@ -1,5 +1,5 @@
 services:
-  postgres_db:
+  postgresdb:
     image: postgres:14-alpine
     environment:
       POSTGRES_PASSWORD: quarkus
@@ -9,11 +9,11 @@ services:
       - ./postgres_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
-    healthcheck:
-      test: ["CMD-SHELL", "sudo pg_isready -U postgres"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+    # healthcheck:
+    #   test: ["CMD-SHELL", "sudo pg_isready -U postgres"]
+    #   interval: 10s
+    #   timeout: 5s
+    #   retries: 5
     networks:
       - whole_network
 

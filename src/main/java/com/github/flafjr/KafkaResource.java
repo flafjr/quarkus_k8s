@@ -6,10 +6,10 @@ import io.quarkus.logging.Log;
 import jakarta.transaction.Transactional;
 
 public class KafkaResource {
-    @Transactional
-    @Incoming("power")
-    public void consumePower(DevicePower devicePower) {
-        Log.info("Update device " + devicePower.device + "");
-        DevicePower.persist(devicePower);
-    }
+    // @Transactional
+    // @Incoming("power")
+    // public void consumePower(DevicePower devicePower) {
+    //     Log.info("Update device " + devicePower.device + "");
+    //     DevicePower.persist(devicePower);
+    // }
 }
