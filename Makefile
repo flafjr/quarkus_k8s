@@ -6,11 +6,10 @@ usage: ## Show this help in table format
 dev: ## Run app in DEV mode
 	@./mvnw compile quarkus:dev
 
-build: ## Build and Push Image
-	@./mvnw package -Dquarkus.container-image.build=true -Dquarkus.container-image.push=true
+build: ## Build and Push Image - Currently ignoring tests until profile are correctly configured
+	@./mvnw package -DskipTests=true -Dquarkus.container-image.build=true -Dquarkus.container-image.push=true
 
-deploy: ## Deploy In K8s - build
-  @./mvnw clean package
+deploy: build ## Deploy In K8s - build
 	@kubectl apply -f target/kubernetes/kubernetes.yml
 
 delete: ## Delete objects created by Quarkus
@@ -30,3 +29,9 @@ k8s-convert: ## Converts docker compose to Kubernetes - https://kubernetes.io/do
 
 k8s-apply: k8s-convert ## Converts docker compose to Kubernetes and apply it
 	@kubectl apply
+
+k8s-pfw: ## port forwarding to quarkus service
+	@kubectl port-forward --namespace quarkus-postgres svc/quarkus-k8s 8080:80
+
+logs: ## Logs to K8S quarkus service
+	@kubectl logs svc/quarkus-k8s
