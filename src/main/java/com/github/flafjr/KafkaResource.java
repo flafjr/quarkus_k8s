@@ -1,6 +1,6 @@
 package com.github.flafjr;
 
-import org.eclipse.microprofile.reactive.messaging.Incoming;
+//import org.eclipse.microprofile.reactive.messaging.Incoming;
 
 import io.quarkus.logging.Log;
 import jakarta.transaction.Transactional;
