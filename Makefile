@@ -7,7 +7,7 @@ dev: ## Run app in DEV mode
 	@./mvnw compile quarkus:dev
 
 build: ## Build and Push Image - Currently ignoring tests until profile are correctly configured
-	@./mvnw package -DskipTests=true -Dquarkus.container-image.build=true -Dquarkus.container-image.push=true
+	@./mvnw package -DskipTests=true -Dquarkus.container-image.build=true
 
 deploy: build ## Deploy In K8s - build
 	@kubectl apply -f target/kubernetes/kubernetes.yml
