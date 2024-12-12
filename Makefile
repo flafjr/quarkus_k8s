@@ -6,6 +6,8 @@ usage: ## Show this help in table format
 dev: ## Run app in DEV mode
 	@./mvnw compile quarkus:dev
 
+local: ## Run app in DEV mode
+	@./mvnw compile quarkus:dev -Dquarkus.profile=local
 build: ## Build and Push Image - Currently ignoring tests until profile are correctly configured
 	@./mvnw package -DskipTests=true -Dquarkus.container-image.build=true
 
@@ -18,10 +20,10 @@ delete: ## Delete objects created by Quarkus
 rollout: ## TODO: REVIEW - ?
 	@kubectl rollout undo deployment my-application
 
-local: ## Docker Compose UP
+dc-local: ## Docker Compose UP
 	@docker-compose up -d
 
-local-down: ## Docker Compose DOWN
+dc-local-down: ## Docker Compose DOWN
 	@docker-compose down -v
 
 k8s-convert: ## Converts docker compose to Kubernetes - https://kubernetes.io/docs/tasks/configure-pod-container/translate-compose-kubernetes/
@@ -38,3 +40,6 @@ logs: ## Logs to K8S quarkus service
 
 postgres: ## Logs to K8S quarkus service
 	@helm upgrade --install postgres-local-postgresql bitnami/postgresql --namespace quarkus-postgres --set postgresqlPassword=mysecretpassword
+
+k8s-db-pfw: ## port forwarding to DB
+	@kubectl port-forward --namespace quarkus-postgres svc/postgres-local-postgresql 5432:5432
