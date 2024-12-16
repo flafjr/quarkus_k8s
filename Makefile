@@ -6,10 +6,10 @@ usage: ## Show this help in table format
 dev: ## Run app in DEV mode
 	@./mvnw compile quarkus:dev
 
-local: ## Run app in DEV mode
+local: k8s-db-pfw ## Run app in DEV mode
 	@./mvnw compile quarkus:dev -Dquarkus.profile=local
 build: ## Build and Push Image - Currently ignoring tests until profile are correctly configured
-	@./mvnw package -DskipTests=true -Dquarkus.container-image.build=true -Dquarkus.profile=staging
+	@./mvnw clean package -Dquarkus.container-image.build=true -Dquarkus.container-image.push=true -Dquarkus.profile=staging
 
 deploy: build ## Deploy In K8s - build
 	@kubectl apply -f target/kubernetes/kubernetes.yml
@@ -45,7 +45,7 @@ postgres: ## Logs to K8S quarkus service
 	@helm upgrade --install postgres-local-postgresql bitnami/postgresql --namespace quarkus-postgres --set postgresqlPassword=C1Ec3pBDLq
 
 k8s-db-pfw: ## port forwarding to DB
-	@kubectl port-forward --namespace quarkus-postgres svc/postgres-local-postgresql 5432:5432
+	@kubectl port-forward --namespace quarkus-postgres svc/postgres-local-postgresql 5432:5432 &
 
 k8s-config: ## port forwarding to DB
 	@kubectl create configmap my-config --from-env-file=.env
