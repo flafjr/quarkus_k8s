@@ -2,6 +2,7 @@ package com.github.flafjr;
 
 import java.util.List;
 
+import jakarta.transaction.Transactional;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
@@ -21,6 +22,7 @@ public class PowerResource {
     }
 
     @POST
+    @Transactional
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response saveDevicePower(DevicePower devicePower) {

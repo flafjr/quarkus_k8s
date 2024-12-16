@@ -1,0 +1,7 @@
+POST http://localhost:8080/power
+content-type: application/json
+
+{
+    "device": "Device 1",
+    "power": 12121
+}
