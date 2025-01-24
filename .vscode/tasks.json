@@ -1,0 +1,124 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "make usage",
+      "type": "shell",
+      "command": "make",
+      "args": ["usage"],
+      "detail": "Show the Makefile help in table format."
+    },
+    {
+      "label": "make dev",
+      "type": "shell",
+      "command": "make",
+      "args": ["dev"],
+      "detail": "Run the app in DEV mode."
+    },
+    {
+      "label": "make local",
+      "type": "shell",
+      "command": "make",
+      "args": ["local"],
+      "detail": "Run the app in DEV mode with the local profile."
+    },
+    {
+      "label": "make build",
+      "type": "shell",
+      "command": "make",
+      "args": ["build"],
+      "detail": "Build and push the container image."
+    },
+    {
+      "label": "make deploy",
+      "type": "shell",
+      "command": "make",
+      "args": ["deploy"],
+      "detail": "Build the app and deploy it in Kubernetes."
+    },
+    {
+      "label": "make delete",
+      "type": "shell",
+      "command": "make",
+      "args": ["delete"],
+      "detail": "Delete Kubernetes objects created by Quarkus."
+    },
+    {
+      "label": "make rollout",
+      "type": "shell",
+      "command": "make",
+      "args": ["rollout"],
+      "detail": "Undo the last Kubernetes deployment rollout."
+    },
+    {
+      "label": "make dc-local",
+      "type": "shell",
+      "command": "make",
+      "args": ["dc-local"],
+      "detail": "Start Docker Compose in detached mode."
+    },
+    {
+      "label": "make dc-local-down",
+      "type": "shell",
+      "command": "make",
+      "args": ["dc-local-down"],
+      "detail": "Stop and remove Docker Compose containers and volumes."
+    },
+    {
+      "label": "make k8s-deploy",
+      "type": "shell",
+      "command": "make",
+      "args": ["k8s-deploy"],
+      "detail": "Deploy the app in Kubernetes."
+    },
+    {
+      "label": "make k8s-convert",
+      "type": "shell",
+      "command": "make",
+      "args": ["k8s-convert"],
+      "detail": "Convert Docker Compose configuration to Kubernetes manifests."
+    },
+    {
+      "label": "make k8s-apply",
+      "type": "shell",
+      "command": "make",
+      "args": ["k8s-apply"],
+      "detail": "Convert Docker Compose to Kubernetes and apply the configuration."
+    },
+    {
+      "label": "make k8s-pfw",
+      "type": "shell",
+      "command": "make",
+      "args": ["k8s-pfw"],
+      "detail": "Set up port forwarding to the Quarkus service in Kubernetes."
+    },
+    {
+      "label": "make logs",
+      "type": "shell",
+      "command": "make",
+      "args": ["logs"],
+      "detail": "Show logs of the Quarkus service in Kubernetes."
+    },
+    {
+      "label": "make postgres",
+      "type": "shell",
+      "command": "make",
+      "args": ["postgres"],
+      "detail": "Install or upgrade PostgreSQL in Kubernetes using Helm."
+    },
+    {
+      "label": "make k8s-db-pfw",
+      "type": "shell",
+      "command": "make",
+      "args": ["k8s-db-pfw"],
+      "detail": "Set up port forwarding to the PostgreSQL service in Kubernetes."
+    },
+    {
+      "label": "make k8s-config",
+      "type": "shell",
+      "command": "make",
+      "args": ["k8s-config"],
+      "detail": "Create a Kubernetes ConfigMap from the .env file."
+    }
+  ]
+}

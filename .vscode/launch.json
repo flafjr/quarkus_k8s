@@ -1,0 +1,50 @@
+{
+  "configurations": [
+    {
+      "name": "Debug Quarkus Locally",
+      "type": "java",
+      "request": "attach",
+      "hostName": "localhost",
+      "port": 5005,
+      "preLaunchTask": "make local",
+      "sourcePaths": ["${workspaceFolder}/src/main/java"],
+      "projectName": "quarkus-k8s" // Replace with your project name if needed
+    },
+    {
+      "name": "Make Build",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/output_binary", // Replace with your actual program
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "preLaunchTask": "make build"
+    },
+    {
+      "name": "Make Run",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/output_binary", // Replace with your actual program
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "preLaunchTask": "make run"
+    },
+    {
+      "name": "Make Test",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/test_output_binary", // Replace with your actual test program
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "preLaunchTask": "make test"
+    }
+  ]
+}
